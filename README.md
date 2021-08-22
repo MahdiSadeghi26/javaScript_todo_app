@@ -3,9 +3,9 @@ This my first project with JS 😅
 Todo app is simple browser notepad using localStorage by the way i hope you like that
 
 
-(http://up.maralhost.com/do.php?img=698)
+![Desktop view](http://up.maralhost.com/do.php?img=698)
 
-(http://up.maralhost.com/do.php?img=697)
+![Mobile view](http://up.maralhost.com/do.php?img=697)
 
-(http://up.maralhost.com/do.php?img=696)
+![Tablet View](http://up.maralhost.com/do.php?img=696)
 
