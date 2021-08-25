@@ -111,7 +111,7 @@ body {
 #label {
   font-family: VazirMedium;
   font-size: 25px;
-  text-shadow: 0px 0px 15px #000000;
+  text-shadow: 0px 0px 15px #000000cb;
   text-align: right;
   align-self: flex-start;
 }
@@ -122,7 +122,7 @@ body {
 #note {
   width: 100%;
   border: none;
-  border-radius: 20px;
+  border-radius: 25px;
   padding: 15px 25px;
   align-self: center;
   background-color: rgba(255, 255, 255, 0.25);
@@ -152,7 +152,7 @@ body {
   cursor: pointer;
   transition: all 0.5s;
   text-shadow: 0px 0px 15px #000000;
-  border-radius: 15px;
+  border-radius: 25px;
 }
 .button:hover {
   color: #f7f4f0;
@@ -199,7 +199,25 @@ body {
   height: 100%;
   border-radius: 20px;
 }
-/* six columns nth child2 media query */
+/* img note section */
+.note-img{
+  position: fixed;
+  z-index: -1;
+  left: 20px;
+  bottom: 20px;
+  opacity: .9;
+}
+.note{
+  width: 340px;
+  height: 290px;
+}
+/* six columns & note img nth child2 media query */
+@media (max-width:575.98px){
+  .note{
+    width: 270px !important;
+    height: 190px !important ;
+  }
+}
 @media (max-width:767.98px){
   .row{
     grid-template-rows: repeat(1,1fr);
@@ -207,17 +225,18 @@ body {
   .note-list{
     padding: 90px 0;
   }
-  
+  .note{
+    position: relative;
+   z-index: -1111;
+   width: 210px;
+   height: 150px;
+   bottom: -30px;
+   opacity: .6;
+  }
 }
-/* img note section */
-.note-img{
-  position: fixed;
-  z-index: -1;
-  left: 20px;
-  bottom: 20px;
-  
-}
-.note{
-  width: 340px;
-  height: 290px;
+@media (max-width:991.98px) {
+  .note{
+    width: 350px;
+    height: 200px;
+  }
 }
