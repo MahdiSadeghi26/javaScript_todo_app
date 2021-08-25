@@ -11,6 +11,9 @@ body {
   background-size: cover;
   direction: rtl;
 }
+.pb-10px{
+  padding-bottom: 15px;
+}
 /* font section sort(ASC) */
 @font-face {
   font-family: "vazirLight";
@@ -89,14 +92,17 @@ body {
   width: 100%;
   display: grid;
   grid-template-areas: "six-columns six-columns";
+  grid-template-columns: repeat(2,1fr);  
   margin: 50px auto;
-  justify-content: stretch;
+  text-shadow: 0px 0px 15px #000000;
+
+
 }
 /* six columns */
-.row .six-columns {
+.six-columns {
   display: flex;
   flex-direction: column;
-  width: calc(100% / 2);
+  width: calc(calc(100% / 2)-40px);
   border-radius: 20px;
   padding: 0 20px;
 }
@@ -105,7 +111,6 @@ body {
 #label {
   font-family: VazirMedium;
   font-size: 25px;
-  padding-bottom: 15px;
   text-shadow: 0px 0px 15px #000000;
   text-align: right;
   align-self: flex-start;
@@ -145,9 +150,9 @@ body {
   margin: 15px auto;
   padding: 5px 0;
   cursor: pointer;
-  border-radius: 15px;
   transition: all 0.5s;
   text-shadow: 0px 0px 15px #000000;
+  border-radius: 15px;
 }
 .button:hover {
   color: #f7f4f0;
@@ -165,11 +170,12 @@ body {
 @media (max-width: 767.98px) {
   .row {
     grid-template-areas: "six-columns" "six-columns";
+    grid-template-columns: repeat(1,1fr);
   }
   #label{
     font-size: 25px;
   }
-  .row .six-columns{
+  .six-columns{
     width: 100%;
   }
   #form{
@@ -186,4 +192,32 @@ body {
   .six-columns{
    padding: 10px 10px !important;
   }
+}
+/* note list section */
+.note-list{
+  background-color: rgba(255, 255, 255, 0.25);
+  height: 100%;
+  border-radius: 20px;
+}
+/* six columns nth child2 media query */
+@media (max-width:767.98px){
+  .row{
+    grid-template-rows: repeat(1,1fr);
+  }
+  .note-list{
+    padding: 90px 0;
+  }
+  
+}
+/* img note section */
+.note-img{
+  position: fixed;
+  z-index: -1;
+  left: 20px;
+  bottom: 20px;
+  
+}
+.note{
+  width: 340px;
+  height: 290px;
 }

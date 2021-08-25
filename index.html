@@ -17,16 +17,20 @@
             <section class="row">
                 <!-- new note section -->
                 <section class="six-columns">
-                    <label id="label" class="form-label">یادداشت جدید بنویس :</label>
+                    <label id="label" class="form-label pb-10px">یادداشت جدید بنویس :</label>
                     <form action="#" id="form">
-                        <textarea  id="note" cols="75" rows="5" placeholder="چیزی بنویسید ..."></textarea>
+                        <textarea  id="note" cols="65" rows="5" placeholder="چیزی بنویسید ..."></textarea>
                         <input class="button" value="ذخیره  یادداشت" type="submit" id="submit">
                     </form>
                 </section>
                 <!-- saved note section -->
-                <section class="six-columns"></section>
+                <section class="six-columns">
+                    <h2 class="pb-10px">یادداشت های من</h2>
+                    <section class="note-list"></section>
+                </section>
             </section>
         </section>
+        <section class="note-img"><img src="img/note.png" class="note" alt="note-img"></section>
     </section>
     <!-- js file link -->
     <script src="js/app.js"></script>
