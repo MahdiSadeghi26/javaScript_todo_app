@@ -1,19 +1,38 @@
 // To do App js file!!
 
 // variabls
+// note-items access (saved notes)
+const noteItems = document.querySelector("#note-items");
 
+// event listeners
 
-// eventlisteners
 // general event listeners function!
-eventListeners()
+eventListeners();
 function eventListeners() {
-    document.querySelector('#form').addEventListener('submit',newNote)
+  // form selection and event listener
+  document.querySelector("#form").addEventListener("submit", newNote);
 }
 
-
-
 // functions
-// form newNote function
+
+// Adding new note to list  (form function)
 function newNote(event) {
-    event.preventDefault();
+  event.preventDefault();
+  // textarea value access
+  const note = document.querySelector("#note").value;
+
+  // create remove button
+  const removeBtn = document.createElement("a");
+  removeBtn.textContent = "X";
+  removeBtn.classList = "remove-btn";
+
+  // li variable (<li> Tag)
+  const li = document.createElement("li");
+
+  // adding remove btn to li
+  li.appendChild(removeBtn);
+
+  // adding note text to li
+  li.appendChild(document.createTextNode(note));
+  noteItems.appendChild(li);
 }
