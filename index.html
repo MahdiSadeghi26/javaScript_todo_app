@@ -1,38 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To do App</title>
     <!-- css file -->
-    <link rel="stylesheet" href="style/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
     <section class="content">
-        <section class="container">
-            <h1 class="main-title">دفتر یادداشت آنلاین</h1>
-            <h2 class="second-title">Online NoteBook</h2>
-            <!-- row section -->
-            <section class="row">
-                <!-- new note section -->
-                <section class="six-columns">
-                    <label id="label" class="form-label pb-10px">یادداشت جدید بنویس :</label>
-                    <form action="#" id="form">
-                        <textarea  id="note" cols="65" rows="5" placeholder="چیزی بنویسید ..."></textarea>
-                        <input class="button" value="ذخیره  یادداشت" type="submit" id="submit">
-                    </form>
-                </section>
-                <!-- saved note section -->
-                <section class="six-columns">
-                    <h2 class="pb-10px">یادداشت های من</h2>
-                    <section class="note-list"></section>
-                </section>
-                <section class="note-img"><img src="img/note.png" class="note" alt="note-img"></section>
-            </section>
+      <section class="container">
+        <h1 class="main-title">دفتر یادداشت آنلاین</h1>
+        <h2 class="second-title">Online NoteBook</h2>
+        <!-- row section -->
+        <section class="row">
+          <!-- new note section -->
+          <section class="six-columns">
+            <label id="label" class="form-label pb-10px"
+              >یادداشت جدید بنویس :</label
+            >
+            <form action="#" id="form">
+              <textarea
+                id="note"
+                cols="65"
+                rows="5"
+                placeholder="چیزی بنویسید ..."
+              ></textarea>
+              <input
+                class="button"
+                value="ذخیره  یادداشت"
+                type="submit"
+                id="submit"
+              />
+            </form>
+          </section>
+          <!-- saved note section -->
+          <section class="six-columns">
+            <h2 class="pb-10px">یادداشت های من</h2>
+            <section class="note-list" id="note-items"></section>
+          </section>
+          <section class="note-img">
+            <img src="img/note.png" class="note" alt="note-img" />
+          </section>
         </section>
+      </section>
     </section>
     <!-- js file link -->
     <script src="js/app.js"></script>
-</body>
+  </body>
 </html>
