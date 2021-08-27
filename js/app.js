@@ -41,10 +41,27 @@ function newNote(event) {
   if (li.textContent.length === 1) {
     li.remove();
   }
+  addToLocalStorage();
 }
 // remove note
 function removeNote(event) {
   if (event.target.classList.contains("remove-btn")) {
     event.target.parentElement.remove();
   }
+}
+// add notes to local storage
+function addToLocalStorage() {
+  // get to local Storage and read notes
+  const notes = getFromLocalStorage();
+}
+// get noes from localStorage
+function getFromLocalStorage() {
+  let notes;
+  let getFromLS = localStorage.getItem("notes");
+  if (getFromLS === null) {
+    note = [];
+  } else {
+    notes = JSON.parse(getFromLS);
+  }
+  return notes;
 }
