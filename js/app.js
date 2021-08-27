@@ -9,12 +9,14 @@ const noteItems = document.querySelector("#note-items");
 // general event listeners function!
 eventListeners();
 function eventListeners() {
-  // form selection and event listener
+  // form submission and adding new note
   document.querySelector("#form").addEventListener("submit", newNote);
+  // selecting remove button and adding event listener
+  document.querySelector("#note-items").addEventListener("click", removeNote);
 }
 
 // functions
-// Adding new note to list  (form function)
+// adding note
 function newNote(event) {
   event.preventDefault();
   // textarea value access
@@ -27,6 +29,7 @@ function newNote(event) {
   const removeBtn = document.createElement("a");
   removeBtn.textContent = "X";
   removeBtn.classList = "remove-btn";
+  removeBtn.id = "remove-Button";
 
   // adding remove btn to li
   li.appendChild(removeBtn);
@@ -35,7 +38,13 @@ function newNote(event) {
   li.appendChild(document.createTextNode(note));
   noteItems.appendChild(li);
   // validating textnote length
-  if (li.textContent.length===1) {
-    li.remove()
+  if (li.textContent.length === 1) {
+    li.remove();
+  }
+}
+// remove note
+function removeNote(event) {
+  if (event.target.classList.contains("remove-btn")) {
+    event.target.parentElement.remove();
   }
 }
