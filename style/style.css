@@ -157,6 +157,7 @@ body {
 .button:hover {
   color: #f7f4f0;
   background-color: #0599f8;
+  width: 90%;
 }
 /* new note media query */
 @media (max-width: 991.98px) {
@@ -246,6 +247,14 @@ body {
   margin: 15px 25px;
   color:black;
 }
+/* note-list li mediaquery */
+@media (max-width:767.98px){
+  .note-list {
+    padding-top: 0;
+    padding-bottom: 130px;
+  }
+  
+}
 /* remove btn section */
 .remove-btn{
   color: #ff0000;
@@ -253,4 +262,14 @@ body {
   cursor: pointer;
   font-weight: bold;
   font-size: 25px;
+  animation: fadeShow 1s ease-out alternate forwards ;
+}
+/* ul & remove button animation */
+@keyframes fadeShow {
+  from {
+    margin-left: 100%;
+  }
+  to {
+    margin-left: 0%;
+  }
 }
