@@ -273,3 +273,7 @@ body {
     margin-left: 0%;
   }
 }
+/* #note validation */
+.note-validation{
+  outline: 2px solid #f44336;
+}
