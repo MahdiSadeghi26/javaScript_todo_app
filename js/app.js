@@ -38,9 +38,21 @@ function newNote(event) {
   li.appendChild(document.createTextNode(note));
   noteItems.appendChild(li);
   // validating textnote length
-  if (li.textContent.length === 1) {
+  // note empty string validation
+  if (li.textContent.length===1) {
     li.remove();
-  }
+    // text area
+      const note=document.querySelector('#note')
+      note.classList.add('note-validation')
+      const noteForm=document.querySelector('#form')
+
+      const warningMessage=document.createElement('p')
+      warningMessage.textContent='لطفا مقدار خالی نفرستید...'
+      warningMessage.style.color='#f44336'
+      warningMessage.style.textShadow='none'
+
+      noteForm.appendChild(warningMessage)
+}
   addToLocalStorage();
 }
 // remove note
