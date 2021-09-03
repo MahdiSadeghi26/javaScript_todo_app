@@ -13,6 +13,8 @@ function eventListeners() {
   document.querySelector("#form").addEventListener("submit", newNote);
   // selecting remove button and adding event listener
   document.querySelector("#note-items").addEventListener("click", removeNote);
+  // get data from  localStorage on loaded
+  document.addEventListener("DOMContentLoaded", localStorageOnLoad());
 }
 
 // functions
@@ -39,21 +41,21 @@ function newNote(event) {
   noteItems.appendChild(li);
   // validating textnote length
   // note empty string validation
-  if (li.textContent.length===1) {
+  if (li.textContent.length === 1) {
     li.remove();
     // text area
-      const note=document.querySelector('#note')
-      note.classList.add('note-validation')
-      const noteForm=document.querySelector('#form')
+    const note = document.querySelector("#note");
+    note.classList.add("note-validation");
+    const noteForm = document.querySelector("#form");
 
-      const warningMessage=document.createElement('p')
-      warningMessage.textContent='لطفا مقدار خالی نفرستید...'
-      warningMessage.style.color='#f44336'
-      warningMessage.style.textShadow='none'
+    const warningMessage = document.createElement("p");
+    warningMessage.textContent = "لطفا مقدار خالی نفرستید...";
+    warningMessage.style.color = "#f44336";
+    warningMessage.style.textShadow = "none";
 
-      noteForm.appendChild(warningMessage)
-}
-  addToLocalStorage();
+    noteForm.appendChild(warningMessage);
+  }
+  addToLocalStorage(note);
 }
 // remove note
 function removeNote(event) {
@@ -62,18 +64,32 @@ function removeNote(event) {
   }
 }
 // add notes to local storage
-function addToLocalStorage() {
+function addToLocalStorage(note) {
   // get to local Storage and read notes
-  const notes = getFromLocalStorage();
+  const notes = getNotesFromLocalStorage();
+  // pushing new note to the notes array
+  notes.push(note);
+  // adding new notes array to localStorage 
+  localStorage.setItem('notes',JSON.stringify(notes))
+
+  console.log(notes)
 }
 // get noes from localStorage
-function getFromLocalStorage() {
+function getNotesFromLocalStorage() {
   let notes;
+  // get previous notes on local storage
   let getFromLS = localStorage.getItem("notes");
   if (getFromLS === null) {
-    note = [];
-  } else {
+    // if note exist create empty array
+    notes = [];
+  } 
+  // other wise convert value to array
+  else {
     notes = JSON.parse(getFromLS);
   }
   return notes;
+}
+// get localStorage data on load
+function localStorageOnLoad() {
+  const notes = getNotesFromLocalStorage();
 }
