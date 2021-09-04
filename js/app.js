@@ -47,7 +47,7 @@ function newNote(event) {
     const note = document.querySelector("#note");
     note.classList.add("note-validation");
     const noteForm = document.querySelector("#form");
-
+    // warning Message when validation is falid
     const warningMessage = document.createElement("p");
     warningMessage.textContent = "لطفا مقدار خالی نفرستید...";
     warningMessage.style.color = "#f44336";
@@ -69,10 +69,8 @@ function addToLocalStorage(note) {
   const notes = getNotesFromLocalStorage();
   // pushing new note to the notes array
   notes.push(note);
-  // adding new notes array to localStorage 
-  localStorage.setItem('notes',JSON.stringify(notes))
-
-  console.log(notes)
+  // adding new notes array to localStorage
+  localStorage.setItem("notes", JSON.stringify(notes));
 }
 // get noes from localStorage
 function getNotesFromLocalStorage() {
@@ -82,7 +80,7 @@ function getNotesFromLocalStorage() {
   if (getFromLS === null) {
     // if note exist create empty array
     notes = [];
-  } 
+  }
   // other wise convert value to array
   else {
     notes = JSON.parse(getFromLS);
@@ -92,4 +90,23 @@ function getNotesFromLocalStorage() {
 // get localStorage data on load
 function localStorageOnLoad() {
   const notes = getNotesFromLocalStorage();
+
+  // print each items of array
+  notes.forEach(note => {
+    // create remove button
+    const removeBtn = document.createElement("a");
+    removeBtn.textContent = "X";
+    removeBtn.classList = "remove-btn";
+    removeBtn.id = "remove-Button";
+
+    // li variable (<li> Tag)
+    const li = document.createElement("li");
+    li.appendChild(document.createTextNode(note));
+
+    // adding remove btn to li
+    li.appendChild(removeBtn);
+
+    // adding note text to li
+    noteItems.appendChild(li);
+  });
 }
