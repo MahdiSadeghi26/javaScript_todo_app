@@ -263,6 +263,7 @@ body {
   font-weight: bold;
   font-size: 25px;
   animation: fadeShow 1s ease-out alternate forwards ;
+  margin-top: -4px;
 }
 /* ul & remove button animation */
 @keyframes fadeShow {
