@@ -56,6 +56,8 @@ function newNote(event) {
     noteForm.appendChild(warningMessage);
   }
   addToLocalStorage(note);
+  // new note alert
+  alert("یادداشت با موفقیت اضافه شد")
 }
 // remove note
 function removeNote(event) {
@@ -115,7 +117,7 @@ function localStorageOnLoad() {
 // remove note from local storage
 function removeFromLocalStorage(noteContent) {
   // delete remove button from content
-  const noteDelete = noteContent.substring(0, noteContent.length - 1)
+  const noteDelete = noteContent.substring(0, noteContent.length -1)
 
   // get notes from LocalStorage
   const notesFromLS = getNotesFromLocalStorage();
