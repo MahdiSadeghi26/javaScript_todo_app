@@ -62,6 +62,8 @@ function removeNote(event) {
   if (event.target.classList.contains("remove-btn")) {
     event.target.parentElement.remove();
   }
+  // also remove from localstorage
+  removeFromLocalStorage(event.target.parentElement.textContent);
 }
 // add notes to local storage
 function addToLocalStorage(note) {
@@ -109,4 +111,21 @@ function localStorageOnLoad() {
     // adding note text to li
     noteItems.appendChild(li);
   });
+}
+// remove note from local storage
+function removeFromLocalStorage(noteContent) {
+  // delete remove button from content
+  const noteDelete = noteContent.substring(0, noteContent.length - 1)
+
+  // get notes from LocalStorage
+  const notesFromLS = getNotesFromLocalStorage();
+
+  // iterating the array with for each
+  notesFromLS.forEach((note, index) => {
+    if (note === noteDelete) {
+      notesFromLS.splice(index, 1);
+    }
+  });
+  // set new array of notes after remove to localStorage
+  localStorage.setItem("notes", JSON.stringify(notesFromLS));
 }
