@@ -21,6 +21,7 @@ function eventListeners() {
 // adding note
 function newNote(event) {
   event.preventDefault();
+  
   // textarea value access
   const note = document.querySelector("#note").value;
 
@@ -31,7 +32,6 @@ function newNote(event) {
   const removeBtn = document.createElement("a");
   removeBtn.textContent = "X";
   removeBtn.classList = "remove-btn";
-  removeBtn.id = "remove-Button";
 
   // adding remove btn to li
   li.appendChild(removeBtn);
@@ -54,10 +54,13 @@ function newNote(event) {
     warningMessage.style.textShadow = "none";
 
     noteForm.appendChild(warningMessage);
+    return
   }
   addToLocalStorage(note);
   // new note alert
   alert("یادداشت با موفقیت اضافه شد")
+  // reseting text area after submit
+  this.reset()
 }
 // remove note
 function removeNote(event) {
@@ -101,7 +104,7 @@ function localStorageOnLoad() {
     const removeBtn = document.createElement("a");
     removeBtn.textContent = "X";
     removeBtn.classList = "remove-btn";
-    removeBtn.id = "remove-Button";
+    
 
     // li variable (<li> Tag)
     const li = document.createElement("li");
