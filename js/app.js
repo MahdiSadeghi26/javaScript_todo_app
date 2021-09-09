@@ -56,9 +56,13 @@ function newNote(event) {
     noteForm.appendChild(warningMessage);
     return
   }
+  // if validation result is true
+  else{
+    alert("یادداشت با موفقیت اضافه شد")
+
+  }
   addToLocalStorage(note);
   // new note alert
-  alert("یادداشت با موفقیت اضافه شد")
   // reseting text area after submit
   this.reset()
 }
